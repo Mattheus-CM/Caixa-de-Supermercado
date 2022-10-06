@@ -21,3 +21,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/Caixa-de-Supermercados/Projeto-Supermercado/nbproject/private/
+/Caixa-de-Supermercados/Projeto-Supermercado/build/
+/Caixa-de-Supermercados/Projeto-Supermercado/nbbuild/
+/Caixa-de-Supermercados/Projeto-Supermercado/dist/
+/Caixa-de-Supermercados/Projeto-Supermercado/nbdist/
+/Caixa-de-Supermercados/Projeto-Supermercado/nbactions.xml
+/Caixa-de-Supermercados/Projeto-Supermercado/nb-configuration.xml
