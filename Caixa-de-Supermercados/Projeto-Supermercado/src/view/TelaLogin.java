@@ -110,13 +110,13 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user = cpUser.getText();
         String password = new String(cpPassword.getPassword());
-
-        if (user.equals("admin") && password.equals("admin")) {
-            JOptionPane.showMessageDialog(null,
+        
+        if(user.equals("admin") && password.equals("admin")){
+            JOptionPane.showMessageDialog(null, 
                     "Login realizado com sucesso!");
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null,
+            JOptionPane.showMessageDialog(null, 
                     "Login ou senha incorretos");
         }
     }//GEN-LAST:event_btLoginActionPerformed
