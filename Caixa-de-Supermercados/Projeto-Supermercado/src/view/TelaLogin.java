@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author Manu
- */
+import javax.swing.JOptionPane;
+
 public class TelaLogin extends javax.swing.JFrame {
 
     /**
@@ -29,13 +23,15 @@ public class TelaLogin extends javax.swing.JFrame {
         ImgLogo = new javax.swing.JLabel();
         lbUser = new javax.swing.JLabel();
         lbPassword = new javax.swing.JLabel();
-        cpUser1 = new javax.swing.JTextField();
+        cpUser = new javax.swing.JTextField();
         btLogin = new javax.swing.JButton();
         cpPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de Login");
         setBackground(new java.awt.Color(255, 255, 255));
         setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         ImgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo.png"))); // NOI18N
 
@@ -43,13 +39,18 @@ public class TelaLogin extends javax.swing.JFrame {
 
         lbPassword.setText("Senha:");
 
-        cpUser1.addActionListener(new java.awt.event.ActionListener() {
+        cpUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpUser1ActionPerformed(evt);
+                cpUserActionPerformed(evt);
             }
         });
 
         btLogin.setText("Login");
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLoginActionPerformed(evt);
+            }
+        });
 
         cpPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,11 +67,11 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ImgLogo)
-                        .addGap(68, 68, 68)
+                        .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbUser, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpUser, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 32, Short.MAX_VALUE))
         );
@@ -83,26 +84,42 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(lbUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cpUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addComponent(cpUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(lbPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(68, 68, 68)
                 .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cpUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpUser1ActionPerformed
+    private void cpUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cpUser1ActionPerformed
+    }//GEN-LAST:event_cpUserActionPerformed
 
     private void cpPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpPasswordActionPerformed
+
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
+        // TODO add your handling code here:
+        String user = cpUser.getText();
+        String password = new String(cpPassword.getPassword());
+
+        if (user.equals("admin") && password.equals("admin")) {
+            JOptionPane.showMessageDialog(null,
+                    "Login realizado com sucesso!");
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Login ou senha incorretos");
+        }
+    }//GEN-LAST:event_btLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +160,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel ImgLogo;
     private javax.swing.JButton btLogin;
     private javax.swing.JPasswordField cpPassword;
-    private javax.swing.JTextField cpUser1;
+    private javax.swing.JTextField cpUser;
     private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbUser;
     // End of variables declaration//GEN-END:variables
