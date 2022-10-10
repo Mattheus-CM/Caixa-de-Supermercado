@@ -92,3 +92,5 @@ CREATE TABLE Produto_has_DetalheVenda (
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 );
+
+INSERT INTO usuario VALUES (1, 'admin', 'admin');

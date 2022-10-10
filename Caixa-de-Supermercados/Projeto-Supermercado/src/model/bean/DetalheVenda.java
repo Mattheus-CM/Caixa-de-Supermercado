@@ -9,6 +9,6 @@ public class DetalheVenda {
     private BigDecimal precoTotal;
     private int quantidade;
     private String dataDaCompra;
-    private int FuncionarioIdFuncionario;
-    private int NotaFiscalIdNotaFiscal;
+    private int funcionarioIdFuncionario;
+    private int notaFiscalIdNotaFiscal;
 }

@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.JOptionPane;
+import model.dao.UsuarioDAO;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -111,9 +112,13 @@ public class TelaLogin extends javax.swing.JFrame {
         String user = cpUser.getText();
         String password = new String(cpPassword.getPassword());
         
-        if(user.equals("admin") && password.equals("admin")){
+        UsuarioDAO dao = new UsuarioDAO();
+                
+        if(dao.checkLogin(user, password)){
             JOptionPane.showMessageDialog(null, 
                     "Login realizado com sucesso!");
+            
+            new TelaPrincipal().setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, 
