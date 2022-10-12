@@ -5,9 +5,9 @@ public class NotaFiscal {
     private int idNotaFiscal;
     private String dataDaCompra;
     private String cep;
-    private EnderecoSupermercado endereco;
+    private Endereco endereco;
 
-    public NotaFiscal(int idNotaFiscal, String dataDaCompra, String cep, EnderecoSupermercado endereco) {
+    public NotaFiscal(int idNotaFiscal, String dataDaCompra, String cep, Endereco endereco) {
         this.idNotaFiscal = idNotaFiscal;
         this.dataDaCompra = dataDaCompra;
         this.cep = cep;
@@ -26,7 +26,7 @@ public class NotaFiscal {
         return cep;
     }
 
-    public EnderecoSupermercado getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 }
