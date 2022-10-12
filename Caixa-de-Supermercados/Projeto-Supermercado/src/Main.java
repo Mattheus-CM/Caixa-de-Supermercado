@@ -12,11 +12,11 @@ public class Main {
             System.out.println("\n\nPara continuar, faça login!");
 
             System.out.print("Usuario: ");
-            String user = ler.nextLine();
+            String usuario = ler.nextLine();
             System.out.print("Senha: ");
-            String password = ler.nextLine();
+            String senha = ler.nextLine();
 
-            if (!UsuarioDAO.checkLogin(user, password)) {
+            if (!(usuario.equals("admin") && senha.equals("admin"))) {
                 System.out.println("Senha incorreta!");
             } else {
                 System.out.println("Login realizado com sucesso!");
