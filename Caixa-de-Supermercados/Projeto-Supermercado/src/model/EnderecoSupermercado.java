@@ -1,16 +1,16 @@
 package model;
 
-public class Endereco {
+public class EnderecoSupermercado {
 
-    private int idEndereco;
+    private int idEnderecoSupermercado;
     private String rua;
     private String numero;
     private String bairro;
     private String cidade;
     private String cep;
 
-    public Endereco(int idEndereco, String rua, String numero, String bairro, String cidade, String cep) {
-        this.idEndereco = idEndereco;
+    public EnderecoSupermercado(int idEnderecoSupermercado, String rua, String numero, String bairro, String cidade, String cep) {
+        this.idEnderecoSupermercado = idEnderecoSupermercado;
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -18,8 +18,8 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public int getIdEndereco() {
-        return idEndereco;
+    public int getIdEnderecoSupermercado() {
+        return idEnderecoSupermercado;
     }
 
     public String getRua() {
@@ -36,9 +36,5 @@ public class Endereco {
 
     public String getCidade() {
         return cidade;
-    }
-
-    public String getCep() {
-        return cep;
     }
 }

@@ -66,6 +66,7 @@ public class Main {
 
                 case 4:
                     // Cadastrar funcionário
+                    cadastrarFuncionario();
                     break;
 
                 case 5:
@@ -89,4 +90,8 @@ public class Main {
         ler.close();
     }
 
+    public void cadastrarFuncionario(){
+        System.out.println("--- Tela de Cadastro de Funcionários ---");
+        System.out.println();
+    }
 }
