@@ -17,15 +17,14 @@ public class FuncionarioDAO {
 
         try {
             stmt = (PreparedStatement) con.prepareStatement("INSERT INTO funcionario " +
-                    "VALUES (idFuncionario, Nome, Cargo, CPF, Usuario_idUsuario," +
+                    "VALUES (Nome, Cargo, CPF, Usuario_idUsuario," +
                     " Endereco_idEndereco)");
 
-            stmt.setInt(1, funcionario.getIdFuncionario());
-            stmt.setString(2, funcionario.getNome());
-            stmt.setString(3, funcionario.getCargo());
-            stmt.setString(4, funcionario.getCpf());
-            stmt.setInt(5, funcionario.getUsuario().getIdUsuario());
-            stmt.setInt(6, funcionario.getEndereco().getIdEndereco());
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getCargo());
+            stmt.setString(3, funcionario.getCpf());
+            stmt.setInt(4, funcionario.getUsuario().getIdUsuario());
+            stmt.setInt(5, funcionario.getEndereco().getIdEndereco());
 
             stmt.executeUpdate();
 

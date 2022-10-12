@@ -18,11 +18,10 @@ public class UsuarioDAO {
         try {
 
             stmt = (PreparedStatement) con.prepareStatement("INSERT INTO usuario " +
-                    "VALUES (idUsuario, Usuario, Senha)");
+                    "VALUES (Usuario, Senha)");
 
-            stmt.setInt(1, usuario.getIdUsuario());
-            stmt.setString(2, usuario.getUsuario());
-            stmt.setString(3, usuario.getSenha());
+            stmt.setString(1, usuario.getUsuario());
+            stmt.setString(2, usuario.getSenha());
 
             stmt.executeUpdate();
 

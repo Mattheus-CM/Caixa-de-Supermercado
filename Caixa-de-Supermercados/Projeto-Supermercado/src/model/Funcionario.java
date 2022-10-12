@@ -9,8 +9,7 @@ public class Funcionario {
     private Usuario usuario;
     private Endereco endereco;
 
-    public Funcionario(int idFuncionario, String nome, String cargo, String cpf, Usuario usuario, Endereco endereco) {
-        this.idFuncionario = idFuncionario;
+    public Funcionario(String nome, String cargo, String cpf, Usuario usuario, Endereco endereco) {
         this.nome = nome;
         this.cargo = cargo;
         this.cpf = cpf;

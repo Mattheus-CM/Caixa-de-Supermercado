@@ -1,4 +1,8 @@
 import dao.UsuarioDAO;
+import model.Endereco;
+import model.Funcionario;
+import model.Usuario;
+
 import java.util.Scanner;
 
 public class Main {
@@ -91,7 +95,43 @@ public class Main {
     }
 
     public void cadastrarFuncionario(){
+        Scanner ler = new Scanner(System.in);
+
         System.out.println("--- Tela de Cadastro de Funcionários ---");
-        System.out.println();
+
+        System.out.println("***** Informações do Funcionário *****");
+        System.out.println("Digite o nome do Funcionário: ");
+        String nome = ler.nextLine();
+        System.out.println("Digite o cargo do Funcionário: ");
+        String cargo = ler.nextLine();
+        System.out.println("Digite o cpf do Funcionário: ");
+        String cpf = ler.nextLine();
+
+        System.out.println("***** Login do Funcionário *****");
+        System.out.println("Digite o usuario de login do Funcionário: ");
+        String usuario = ler.nextLine();
+        System.out.println("Digite a senha de login do Funcionário: ");
+        String senha = ler.nextLine();
+
+        System.out.println("***** Endereço do Funcionário *****");
+        System.out.println("Digite a rua: ");
+        String rua = ler.nextLine();
+        System.out.println("Digite o numero: ");
+        String numero = ler.nextLine();
+        System.out.println("Digite o bairro: ");
+        String bairro = ler.nextLine();
+        System.out.println("Digite a cidade: ");
+        String cidade = ler.nextLine();
+        System.out.println("Digite o CEP: ");
+        String cep = ler.nextLine();
+
+        ler.close();
+
+        Usuario usuario1 = new Usuario(usuario, senha);
+        Endereco endereco1 = new Endereco(rua, numero, bairro, cidade, cep);
+        Funcionario funcionario1 = new Funcionario(nome, cargo, cpf, usuario1, endereco1);
+
+
+
     }
 }

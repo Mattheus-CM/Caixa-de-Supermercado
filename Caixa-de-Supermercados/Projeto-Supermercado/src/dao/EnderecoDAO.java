@@ -17,14 +17,13 @@ public class EnderecoDAO {
 
         try {
             stmt = (PreparedStatement) con.prepareStatement("INSERT INTO endereco " +
-                    "VALUES (idEndereco, Rua, Numero, Bairro, Cidade, Cep)");
+                    "VALUES (Rua, Numero, Bairro, Cidade, Cep)");
 
-            stmt.setInt(1, endereco.getIdEndereco());
-            stmt.setString(2, endereco.getRua());
-            stmt.setString(3, endereco.getNumero());
-            stmt.setString(4, endereco.getBairro());
-            stmt.setString(5, endereco.getCidade());
-            stmt.setString(6, endereco.getCep());
+            stmt.setString(1, endereco.getRua());
+            stmt.setString(2, endereco.getNumero());
+            stmt.setString(3, endereco.getBairro());
+            stmt.setString(4, endereco.getCidade());
+            stmt.setString(5, endereco.getCep());
 
             stmt.executeUpdate();
 

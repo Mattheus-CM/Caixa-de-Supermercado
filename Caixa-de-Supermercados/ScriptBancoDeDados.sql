@@ -3,14 +3,14 @@ CREATE DATABASE Supermercado_MM;
 USE Supermercado_MM;
 
 CREATE TABLE Usuario (
-	idUsuario INT NOT NULL,
+	idUsuario INT NOT NULL AUTO_INCREMENT,
 	Usuario VARCHAR(45) NOT NULL,
 	Senha VARCHAR(45) NOT NULL,
 	PRIMARY KEY (idUsuario)
 );
 
 CREATE TABLE Endereco (
-	idEndereco INT NOT NULL,
+	idEndereco INT NOT NULL AUTO_INCREMENT,
 	Rua VARCHAR(45) NOT NULL,
 	Numero VARCHAR(45) NOT NULL,
 	Bairro VARCHAR(45) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE Endereco (
 );
 
 CREATE TABLE Funcionario (
-	idFuncionario INT NOT NULL,
+	idFuncionario INT NOT NULL AUTO_INCREMENT,
 	Nome VARCHAR(45) NOT NULL,
 	Cargo VARCHAR(45) NOT NULL,
 	CPF VARCHAR(45) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Funcionario (
 );
 
 CREATE TABLE Produto (
-	idProduto INT NOT NULL,
+	idProduto INT NOT NULL AUTO_INCREMENT,
 	Nome VARCHAR(45) NOT NULL,
 	Preco DOUBLE NOT NULL,
 	Marca VARCHAR(45) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE Produto (
 );
 
 CREATE TABLE EnderecoSupermercado (
-	idEnderecoSupermercado INT NOT NULL,
+	idEnderecoSupermercado INT NOT NULL AUTO_INCREMENT,
 	Rua VARCHAR(45) NOT NULL,
 	Numero VARCHAR(45) NOT NULL,
 	Bairro VARCHAR(45) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE EnderecoSupermercado (
 );
 
 CREATE TABLE NotaFiscal (
-	idNotaFiscal INT NOT NULL,
+	idNotaFiscal INT NOT NULL AUTO_INCREMENT,
 	DataDaCompra DATE NOT NULL,
 	Supermercado VARCHAR(45) NOT NULL,
 	Endereco_idEndereco INT,
@@ -64,7 +64,7 @@ CREATE TABLE NotaFiscal (
 );
 
 CREATE TABLE DetalheVenda (
-	idDetalheVenda INT NOT NULL,
+	idDetalheVenda INT NOT NULL AUTO_INCREMENT,
 	PrecoUnitario DOUBLE NOT NULL,
 	PrecoTotal DOUBLE NOT NULL,
 	Quantidade INT NOT NULL,
