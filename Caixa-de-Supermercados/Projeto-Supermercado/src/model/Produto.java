@@ -9,8 +9,7 @@ public class Produto {
     private String marca;
     private BigDecimal preco;
 
-    public Produto(int idProduto, String nome, String marca, BigDecimal preco) {
-        this.idProduto = idProduto;
+    public Produto(String nome, String marca, BigDecimal preco) {
         this.nome = nome;
         this.marca = marca;
         this.preco = preco;

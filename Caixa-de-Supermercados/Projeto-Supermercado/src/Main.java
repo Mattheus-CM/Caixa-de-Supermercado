@@ -1,9 +1,13 @@
 import dao.EnderecoDAO;
 import dao.FuncionarioDAO;
+import dao.ProdutoDAO;
 import dao.UsuarioDAO;
 import model.Endereco;
 import model.Funcionario;
+import model.Produto;
 import model.Usuario;
+
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -93,6 +97,20 @@ public class Main {
         }while (opc != 0);
 
         ler.close();
+    }
+
+    public static void cadastrarProduto(){
+        System.out.println("--- Tela de Cadastro de Produtos ---");
+
+        System.out.println("Digite o nome do produto: ");
+        String nome = ler.nextLine();
+        System.out.println("Digite a marca do produto: ");
+        String marca = ler.nextLine();
+        System.out.println("Digite o preço do produto: ");
+        BigDecimal preco = ler.nextBigDecimal();
+
+        Produto produto = new Produto(nome, marca, preco);
+        ProdutoDAO pdao;
     }
 
     public static void cadastrarFuncionario(){
