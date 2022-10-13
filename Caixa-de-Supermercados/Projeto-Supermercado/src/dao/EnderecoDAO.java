@@ -5,7 +5,7 @@ import model.Endereco;
 
 import javax.swing.JOptionPane;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 
 public class EnderecoDAO {
@@ -16,8 +16,7 @@ public class EnderecoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO endereco " +
-                    "VALUES (Rua, Numero, Bairro, Cidade, Cep)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO endereco (Rua, Numero, Bairro, Cidade, Cep) VALUES (?,?,?,?,?)");
 
             stmt.setString(1, endereco.getRua());
             stmt.setString(2, endereco.getNumero());

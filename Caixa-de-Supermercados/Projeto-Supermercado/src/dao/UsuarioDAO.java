@@ -2,11 +2,10 @@ package dao;
 
 import connection.ConnectionFactory;
 import model.Usuario;
-
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import com.mysql.jdbc.PreparedStatement;
 
 public class UsuarioDAO {
 
@@ -17,8 +16,7 @@ public class UsuarioDAO {
 
         try {
 
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO usuario " +
-                    "VALUES (Usuario, Senha)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO usuario (Usuario, Senha) VALUES (?,?)");
 
             stmt.setString(1, usuario.getUsuario());
             stmt.setString(2, usuario.getSenha());

@@ -2,11 +2,9 @@ package dao;
 
 import connection.ConnectionFactory;
 import model.Funcionario;
-
-
 import javax.swing.JOptionPane;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 
 public class FuncionarioDAO {
@@ -16,9 +14,7 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO funcionario " +
-                    "VALUES (Nome, Cargo, CPF, Usuario_idUsuario," +
-                    " Endereco_idEndereco)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO funcionario (Nome, Cargo, CPF, Usuario_idUsuario, Endereco_idEndereco) VALUES (?,?,?,?,?)");
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCargo());

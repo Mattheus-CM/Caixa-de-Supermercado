@@ -92,4 +92,4 @@ CREATE TABLE Produto_has_DetalheVenda (
 		ON UPDATE NO ACTION
 );
 
-INSERT INTO usuario VALUES (1, 'admin', 'admin');
+INSERT INTO usuario VALUES ('admin', 'admin');

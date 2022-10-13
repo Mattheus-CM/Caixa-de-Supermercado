@@ -1,37 +1,36 @@
+import dao.EnderecoDAO;
+import dao.FuncionarioDAO;
 import dao.UsuarioDAO;
 import model.Endereco;
 import model.Funcionario;
 import model.Usuario;
-
 import java.util.Scanner;
 
 public class Main {
+    static Scanner ler = new Scanner(System.in);
+
     public static void main(String[] args) {
+        telaLogin();
+    }
+    public static void telaLogin(){
         System.out.println("--- Seja bem vindo ao sistema ---");
-    }
 
-    public void telaLogin(){
-        while (true) {
-            Scanner ler = new Scanner(System.in);
-            System.out.println("\n\nPara continuar, faça login!");
+        System.out.println("\n\nPara continuar, faça login!");
 
-            System.out.print("Usuario: ");
-            String usuario = ler.nextLine();
-            System.out.print("Senha: ");
-            String senha = ler.nextLine();
+        System.out.print("Usuario: ");
+        String usuario = ler.nextLine();
+        System.out.print("Senha: ");
+        String senha = ler.nextLine();
 
-            if (!(usuario.equals("admin") && senha.equals("admin"))) {
-                System.out.println("Senha incorreta!");
-            } else {
-                System.out.println("Login realizado com sucesso!");
-                break;
+        if (!(usuario.equals("admin") && senha.equals("admin"))) {
+            System.out.println("Senha incorreta!");
+        } else {
+            System.out.println("Login realizado com sucesso!");
+            telaInicial();
             }
-            ler.close();
         }
-    }
 
-    public void telaInicial(){
-        Scanner ler = new Scanner(System.in);
+    public static void telaInicial(){
 
         int opc;
 
@@ -48,7 +47,9 @@ public class Main {
             System.out.println("0 - Sair");
 
             System.out.println("Digite a opção: ");
+
             opc = ler.nextInt();
+            ler.nextLine();
 
             switch (opc){
 
@@ -94,24 +95,17 @@ public class Main {
         ler.close();
     }
 
-    public void cadastrarFuncionario(){
-        Scanner ler = new Scanner(System.in);
-
+    public static void cadastrarFuncionario(){
         System.out.println("--- Tela de Cadastro de Funcionários ---");
-
-        System.out.println("***** Informações do Funcionário *****");
-        System.out.println("Digite o nome do Funcionário: ");
-        String nome = ler.nextLine();
-        System.out.println("Digite o cargo do Funcionário: ");
-        String cargo = ler.nextLine();
-        System.out.println("Digite o cpf do Funcionário: ");
-        String cpf = ler.nextLine();
 
         System.out.println("***** Login do Funcionário *****");
         System.out.println("Digite o usuario de login do Funcionário: ");
         String usuario = ler.nextLine();
         System.out.println("Digite a senha de login do Funcionário: ");
         String senha = ler.nextLine();
+        Usuario u = new Usuario(usuario, senha);
+        UsuarioDAO udao = new UsuarioDAO();
+        udao.cadastrarUsuario(u);
 
         System.out.println("***** Endereço do Funcionário *****");
         System.out.println("Digite a rua: ");
@@ -124,14 +118,22 @@ public class Main {
         String cidade = ler.nextLine();
         System.out.println("Digite o CEP: ");
         String cep = ler.nextLine();
-
         ler.close();
+        Endereco e = new Endereco(rua, numero, bairro, cidade, cep);
+        EnderecoDAO edao = new EnderecoDAO();
+        edao.cadastrarEndereco(e);
 
-        Usuario usuario1 = new Usuario(usuario, senha);
-        Endereco endereco1 = new Endereco(rua, numero, bairro, cidade, cep);
-        Funcionario funcionario1 = new Funcionario(nome, cargo, cpf, usuario1, endereco1);
+        System.out.println("***** Informações do Funcionário *****");
+        System.out.println("Digite o nome do Funcionário: ");
+        String nome = ler.nextLine();
+        System.out.println("Digite o cargo do Funcionário: ");
+        String cargo = ler.nextLine();
+        System.out.println("Digite o cpf do Funcionário: ");
+        String cpf = ler.nextLine();
+        Funcionario f = new Funcionario(nome, cargo, cpf, u, e);
+        FuncionarioDAO fdao = new FuncionarioDAO();
+        fdao.cadastrarFuncionario(f);
 
-
-
+        System.out.println("Chegou aqui");
     }
 }
