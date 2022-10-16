@@ -39,6 +39,7 @@ CREATE TABLE Produto (
 	Nome VARCHAR(45) NOT NULL,
 	Preco DOUBLE NOT NULL,
 	Marca VARCHAR(45) NOT NULL,
+	Codigo VARCHAR(45) NOT NULL,
 	PRIMARY KEY (idProduto)
 );
 

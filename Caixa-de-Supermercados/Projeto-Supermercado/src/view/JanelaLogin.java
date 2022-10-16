@@ -1,6 +1,7 @@
 package view;
 
 import dao.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 public class JanelaLogin extends javax.swing.JFrame {
 
@@ -114,15 +115,11 @@ public class JanelaLogin extends javax.swing.JFrame {
             JanelaPrincipal jp = new JanelaPrincipal();
             jp.setVisible(true);
             this.dispose();
-        }    
+        } else {
+            JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
+        }
 
     }//GEN-LAST:event_btLoginActionPerformed
-
-        /**
-         * @param args the command line arguments
-         */
-        
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btLogin;
