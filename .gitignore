@@ -27,3 +27,8 @@ hs_err_pid*
 *.iws
 *.iml
 *.ipr
+
+/Caixa-de-Supermercados/Projeto-Supermercado/nbproject/
+/Caixa-de-Supermercados/Projeto-Supermercado/build/
+/Caixa-de-Supermercados/Projeto-Supermercado/build.xml
+/Caixa-de-Supermercados/Projeto-Supermercado/manifest.mf
