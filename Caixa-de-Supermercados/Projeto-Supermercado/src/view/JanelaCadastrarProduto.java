@@ -1,5 +1,10 @@
 package view;
 
+import dao.ProdutoDAO;
+import java.math.BigDecimal;
+import javax.swing.JOptionPane;
+import model.Produto;
+
 public class JanelaCadastrarProduto extends javax.swing.JFrame {
 
     public JanelaCadastrarProduto() {
@@ -18,7 +23,7 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
         lblPreco = new javax.swing.JLabel();
         txtPreco = new javax.swing.JTextField();
         lblCodigo = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         btCadastrar = new javax.swing.JButton();
         btLimparCampos = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
@@ -44,6 +49,11 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
         lblCodigo.setText("Código de Barras:");
 
         btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         btLimparCampos.setText("Limpar Campos");
         btLimparCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +89,7 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
                                 .addComponent(txtNomeProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtPreco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -112,7 +122,7 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,6 +141,10 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
 
     private void btLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposActionPerformed
         // TODO add your handling code here:
+        txtNomeProduto.setText("");
+        txtMarca.setText("");
+        txtPreco.setText("");
+        txtCodigo.setText("");
     }//GEN-LAST:event_btLimparCamposActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -140,16 +154,43 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        // TODO add your handling code here:
+        if (txtNomeProduto.getText().isEmpty() || txtMarca.getText().isEmpty()
+                || txtPreco.getText().isEmpty() || txtCodigo.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
+
+        } else {
+
+            String nome = txtNomeProduto.getText();
+            String marca = txtMarca.getText();
+            BigDecimal preco = new BigDecimal(txtPreco.getText());
+            String codigo = txtCodigo.getText();
+
+            Produto produto = new Produto(nome, marca, preco, codigo);
+
+            ProdutoDAO pdao = new ProdutoDAO();
+
+            pdao.cadastrarProduto(produto);
+
+            txtNomeProduto.setText("");
+            txtMarca.setText("");
+            txtPreco.setText("");
+            txtCodigo.setText("");
+        }
+    }//GEN-LAST:event_btCadastrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimparCampos;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCadastrarProduto;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPreco;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtPreco;

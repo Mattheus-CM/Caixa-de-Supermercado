@@ -43,7 +43,7 @@
                               <Component id="txtMarca" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                               <Component id="txtPreco" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextField2" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="txtCodigo" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -86,7 +86,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCodigo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtCodigo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="87" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -137,12 +137,15 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo de Barras:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtCodigo">
     </Component>
     <Component class="javax.swing.JButton" name="btCadastrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btLimparCampos">
       <Properties>

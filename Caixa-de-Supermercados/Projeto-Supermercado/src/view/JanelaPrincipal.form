@@ -29,18 +29,18 @@
               <Component id="lblImage" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btCadastrarProduto" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="btPesquisarProduto" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="btPesquisarFuncionario" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="btVender" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="btCadastrarProduto" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="btPesquisarProduto" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="btPesquisarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="btVender" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="btCadastrarFuncionario" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btCadastrarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>

@@ -15,12 +15,13 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
 
         try {
-
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO produto (Nome, Marca, Preco) VALUES (?,?,?)");
+            
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO produto (Nome, Preco, Marca, Codigo) VALUES (?,?,?,?)");
 
             stmt.setString(1, produto.getNome());
-            stmt.setString(2, produto.getMarca());
             stmt.setBigDecimal(2, produto.getPreco());
+            stmt.setString(3, produto.getMarca());
+            stmt.setString(4, produto.getCodigo());
 
             stmt.executeUpdate();
 
