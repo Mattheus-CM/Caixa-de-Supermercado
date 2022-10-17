@@ -31,6 +31,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         });
 
         btEditarProduto.setText("Editar Produto");
+        btEditarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarProdutoActionPerformed(evt);
+            }
+        });
 
         btEditarFuncionario.setText("Editar Funcionário");
 
@@ -102,6 +107,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         JanelaCadastrarProduto jcp = new JanelaCadastrarProduto();
         jcp.setVisible(true);
     }//GEN-LAST:event_btCadastrarProdutoActionPerformed
+
+    private void btEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarProdutoActionPerformed
+        // TODO add your handling code here:
+        JanelaEditarProduto jep = new JanelaEditarProduto();
+        jep.setVisible(true);
+    }//GEN-LAST:event_btEditarProdutoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrarFuncionario;

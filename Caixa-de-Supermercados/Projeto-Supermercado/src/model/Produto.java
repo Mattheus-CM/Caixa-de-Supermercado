@@ -10,13 +10,18 @@ public class Produto {
     private BigDecimal preco;
     private String codigo;
 
+    public Produto(String nome, String marca, BigDecimal preco, String codigo, int idProduto) {
+        this(nome, marca, preco, codigo);
+        this.idProduto = idProduto;
+    }
+
     public Produto(String nome, String marca, BigDecimal preco, String codigo) {
         this.nome = nome;
         this.marca = marca;
         this.preco = preco;
         this.codigo = codigo;
     }
-
+    
     public int getIdProduto() {
         return idProduto;
     }

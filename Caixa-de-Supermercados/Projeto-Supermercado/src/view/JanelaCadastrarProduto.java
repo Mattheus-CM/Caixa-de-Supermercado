@@ -172,7 +172,7 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
 
             ProdutoDAO pdao = new ProdutoDAO();
 
-            pdao.cadastrarProduto(produto);
+            pdao.create(produto);
 
             txtNomeProduto.setText("");
             txtMarca.setText("");
