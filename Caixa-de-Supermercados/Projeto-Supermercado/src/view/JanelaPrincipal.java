@@ -12,8 +12,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         lblImage = new javax.swing.JLabel();
         btCadastrarProduto = new javax.swing.JButton();
-        btPesquisarProduto = new javax.swing.JButton();
-        btPesquisarFuncionario = new javax.swing.JButton();
+        btEditarProduto = new javax.swing.JButton();
+        btEditarFuncionario = new javax.swing.JButton();
         btCadastrarFuncionario = new javax.swing.JButton();
         btVender = new javax.swing.JButton();
 
@@ -30,9 +30,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btPesquisarProduto.setText("Pesquisar Produto");
+        btEditarProduto.setText("Editar Produto");
 
-        btPesquisarFuncionario.setText("Pesquisar Funcionário");
+        btEditarFuncionario.setText("Editar Funcionário");
 
         btCadastrarFuncionario.setText("Cadastrar Funcionário");
         btCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -59,8 +59,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
@@ -75,11 +75,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addGap(141, 141, 141)
                 .addComponent(btCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(142, Short.MAX_VALUE))
@@ -106,8 +106,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrarFuncionario;
     private javax.swing.JButton btCadastrarProduto;
-    private javax.swing.JButton btPesquisarFuncionario;
-    private javax.swing.JButton btPesquisarProduto;
+    private javax.swing.JButton btEditarFuncionario;
+    private javax.swing.JButton btEditarProduto;
     private javax.swing.JButton btVender;
     private javax.swing.JLabel lblImage;
     // End of variables declaration//GEN-END:variables

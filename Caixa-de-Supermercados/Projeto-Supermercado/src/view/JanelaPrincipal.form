@@ -32,8 +32,8 @@
                       <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btCadastrarProduto" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="btPesquisarProduto" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="btPesquisarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="btEditarProduto" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="btEditarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
                           <Component id="btVender" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -54,11 +54,11 @@
               <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
               <Component id="btCadastrarProduto" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btPesquisarProduto" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="btEditarProduto" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btCadastrarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btPesquisarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="btEditarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btVender" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace pref="142" max="32767" attributes="0"/>
@@ -82,14 +82,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarProdutoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btPesquisarProduto">
+    <Component class="javax.swing.JButton" name="btEditarProduto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisar Produto"/>
+        <Property name="text" type="java.lang.String" value="Editar Produto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btPesquisarFuncionario">
+    <Component class="javax.swing.JButton" name="btEditarFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisar Funcion&#xe1;rio"/>
+        <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btCadastrarFuncionario">
