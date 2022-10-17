@@ -9,6 +9,11 @@ public class Endereco {
     private String cidade;
     private String cep;
 
+    public Endereco(String rua, String numero, String bairro, String cidade, String cep, int idEndereco) {
+        this(rua, numero, bairro, cidade, cep);
+        this.idEndereco = idEndereco;
+    }
+    
     public Endereco(String rua, String numero, String bairro, String cidade, String cep) {
         this.rua = rua;
         this.numero = numero;

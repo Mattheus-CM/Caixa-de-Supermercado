@@ -10,7 +10,7 @@ import com.mysql.jdbc.PreparedStatement;
 
 public class UsuarioDAO {
 
-    public void cadastrarUsuario(Usuario usuario) {
+    public void create(Usuario usuario) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

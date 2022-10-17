@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class EnderecoDAO {
 
-    public void cadastrarEndereco(Endereco endereco){
+    public void create(Endereco endereco){
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

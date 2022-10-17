@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class FuncionarioDAO {
 
-    public void cadastrarFuncionario(Funcionario funcionario){
+    public void create(Funcionario funcionario){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 

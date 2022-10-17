@@ -15,6 +15,7 @@ CREATE TABLE Endereco (
 	Numero VARCHAR(45) NOT NULL,
 	Bairro VARCHAR(45) NOT NULL,
 	Cidade VARCHAR(45) NOT NULL,
+	CEP VARCHAR(45) NOT NULL,
 	PRIMARY KEY (idEndereco)
 );
 
@@ -23,8 +24,8 @@ CREATE TABLE Funcionario (
 	Nome VARCHAR(45) NOT NULL,
 	Cargo VARCHAR(45) NOT NULL,
 	CPF VARCHAR(45) NOT NULL,
-	Usuario_idUsuario INT,
-	Endereco_idEndereco INT,
+	Usuario_idUsuario INT NOT NULL,
+	Endereco_idEndereco INT NOT NULL,
 	PRIMARY KEY (idFuncionario),
 	FOREIGN KEY (Usuario_idUsuario) REFERENCES Usuario (idUsuario)
 		ON DELETE NO ACTION
@@ -93,4 +94,5 @@ CREATE TABLE Produto_has_DetalheVenda (
 		ON UPDATE NO ACTION
 );
 
-INSERT INTO usuario VALUES ('admin', 'admin');
+INSERT INTO usuario (Usuario, Senha) VALUES ('admin', 'admin');
+INSERT INTO usuario (Usuario, Senha) VALUES ('Mattheus','snitram02');
