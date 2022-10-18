@@ -6,15 +6,23 @@ public class Funcionario {
     private String nome;
     private String cargo;
     private String cpf;
-    private Usuario usuario;
-    private Endereco endereco;
+    private String usuario;
+    private String senha;
+    private int idEndereco;
 
-    public Funcionario(String nome, String cargo, String cpf, Usuario usuario, Endereco endereco) {
+    public Funcionario(String nome, String cargo, String cpf, String usuario, String senha, int idEndereco, int idFuncionario) {
+        this(nome, cargo, cpf, usuario, senha, idEndereco);
+        this.idFuncionario = idFuncionario;
+    }
+
+    public Funcionario(String nome, String cargo, String cpf, String usuario, String senha, int idEndereco) {
         this.nome = nome;
         this.cargo = cargo;
         this.cpf = cpf;
         this.usuario = usuario;
-        this.endereco = endereco;
+        this.idEndereco = idEndereco;
+        this.usuario = usuario;
+        this.senha = senha;
     }
 
     public int getIdFuncionario() {
@@ -33,11 +41,15 @@ public class Funcionario {
         return cpf;
     }
 
-    public Usuario getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getSenha() {
+        return senha;
+    }
+
+    public int getEndereco() {
+        return idEndereco;
     }
 }

@@ -2,13 +2,6 @@ CREATE DATABASE Supermercado_MM;
 
 USE Supermercado_MM;
 
-CREATE TABLE Usuario (
-	idUsuario INT NOT NULL AUTO_INCREMENT,
-	Usuario VARCHAR(45) NOT NULL,
-	Senha VARCHAR(45) NOT NULL,
-	PRIMARY KEY (idUsuario)
-);
-
 CREATE TABLE Endereco (
 	idEndereco INT NOT NULL AUTO_INCREMENT,
 	Rua VARCHAR(45) NOT NULL,
@@ -24,12 +17,10 @@ CREATE TABLE Funcionario (
 	Nome VARCHAR(45) NOT NULL,
 	Cargo VARCHAR(45) NOT NULL,
 	CPF VARCHAR(45) NOT NULL,
-	Usuario_idUsuario INT NOT NULL,
+	Usuario VARCHAR(45) NOT NULL,
+	Senha VARCHAR(45) NOT NULL,
 	Endereco_idEndereco INT NOT NULL,
 	PRIMARY KEY (idFuncionario),
-	FOREIGN KEY (Usuario_idUsuario) REFERENCES Usuario (idUsuario)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
 	FOREIGN KEY (Endereco_idEndereco) REFERENCES Endereco (idEndereco)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
@@ -58,7 +49,7 @@ CREATE TABLE NotaFiscal (
 	idNotaFiscal INT NOT NULL AUTO_INCREMENT,
 	DataDaCompra DATE NOT NULL,
 	Supermercado VARCHAR(45) NOT NULL,
-	Endereco_idEndereco INT,
+	Endereco_idEndereco INT NOT NULL,
 	PRIMARY KEY (idNotaFiscal),
 	FOREIGN KEY (Endereco_idEndereco) REFERENCES EnderecoSupermercado (idEnderecoSupermercado)
 		ON DELETE NO ACTION
@@ -71,8 +62,8 @@ CREATE TABLE DetalheVenda (
 	PrecoTotal DOUBLE NOT NULL,
 	Quantidade INT NOT NULL,
 	Data DATE NOT NULL,
-	Funcionario_idFuncionario INT,
-	NotaFiscal_idNotaFiscal INT,
+	Funcionario_idFuncionario INT NOT NULL,
+	NotaFiscal_idNotaFiscal INT NOT NULL,
 	PRIMARY KEY (idDetalheVenda),
 	FOREIGN KEY (Funcionario_idFuncionario) REFERENCES Funcionario (idFuncionario)
 		ON DELETE NO ACTION
@@ -94,5 +85,5 @@ CREATE TABLE Produto_has_DetalheVenda (
 		ON UPDATE NO ACTION
 );
 
-INSERT INTO usuario (Usuario, Senha) VALUES ('admin', 'admin');
-INSERT INTO usuario (Usuario, Senha) VALUES ('Mattheus','snitram02');
+INSERT INTO ENDERECO (Rua, Numero, Bairro, Cidade, CEP) VALUES ('Rua dos Bobos','0','Centro','Rubim','39950000');
+INSERT INTO funcionario (Nome, Cargo, CPF, Usuario, Senha, Endereco_idEndereco) VALUES ('Mattheus','Gerente','00000000000','admin00','admin00',1);

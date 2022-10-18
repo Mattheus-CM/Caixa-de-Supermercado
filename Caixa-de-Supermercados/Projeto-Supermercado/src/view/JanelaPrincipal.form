@@ -33,14 +33,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btCadastrarProduto" min="-2" pref="175" max="-2" attributes="0"/>
                           <Component id="btEditarProduto" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="btEditarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
                           <Component id="btVender" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="btCadastrarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
+                      <Component id="btGerenciarFuncionario" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -51,17 +50,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblImage" alignment="1" pref="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
               <Component id="btCadastrarProduto" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btEditarProduto" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btCadastrarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btEditarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="btGerenciarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btVender" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
+              <EmptySpace pref="193" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,17 +87,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarProdutoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btEditarFuncionario">
+    <Component class="javax.swing.JButton" name="btGerenciarFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btCadastrarFuncionario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
+        <Property name="text" type="java.lang.String" value="Gerenciar Funcion&#xe1;rio"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarFuncionarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerenciarFuncionarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btVender">

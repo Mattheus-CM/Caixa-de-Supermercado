@@ -13,8 +13,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         lblImage = new javax.swing.JLabel();
         btCadastrarProduto = new javax.swing.JButton();
         btEditarProduto = new javax.swing.JButton();
-        btEditarFuncionario = new javax.swing.JButton();
-        btCadastrarFuncionario = new javax.swing.JButton();
+        btGerenciarFuncionario = new javax.swing.JButton();
         btVender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -37,12 +36,10 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btEditarFuncionario.setText("Editar Funcionário");
-
-        btCadastrarFuncionario.setText("Cadastrar Funcionário");
-        btCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        btGerenciarFuncionario.setText("Gerenciar Funcionário");
+        btGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastrarFuncionarioActionPerformed(evt);
+                btGerenciarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -65,38 +62,37 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(btCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btGerenciarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addGap(194, 194, 194)
                 .addComponent(btCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btGerenciarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btVender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarFuncionarioActionPerformed
+    private void btGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btCadastrarFuncionarioActionPerformed
+        JanelaCadastrarFuncionario jcf = new JanelaCadastrarFuncionario();
+        jcf.setVisible(true);
+    }//GEN-LAST:event_btGerenciarFuncionarioActionPerformed
 
     private void btVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderActionPerformed
         // TODO add your handling code here:
@@ -115,10 +111,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarProdutoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastrarFuncionario;
     private javax.swing.JButton btCadastrarProduto;
-    private javax.swing.JButton btEditarFuncionario;
     private javax.swing.JButton btEditarProduto;
+    private javax.swing.JButton btGerenciarFuncionario;
     private javax.swing.JButton btVender;
     private javax.swing.JLabel lblImage;
     // End of variables declaration//GEN-END:variables

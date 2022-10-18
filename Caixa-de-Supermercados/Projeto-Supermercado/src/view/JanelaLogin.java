@@ -1,6 +1,6 @@
 package view;
 
-import dao.UsuarioDAO;
+import dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
 
 public class JanelaLogin extends javax.swing.JFrame {
@@ -108,10 +108,11 @@ public class JanelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
         String senha = new String(txtSenha.getPassword());
+        System.out.println(senha);
         
-        UsuarioDAO udao = new UsuarioDAO();
+        FuncionarioDAO fdao = new FuncionarioDAO();
         
-        if(udao.checkLogin(usuario, senha)){
+        if(fdao.checkLogin(usuario, senha)){
             JanelaPrincipal jp = new JanelaPrincipal();
             jp.setVisible(true);
             this.dispose();
