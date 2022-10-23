@@ -4,13 +4,14 @@ public class NotaFiscal {
 
     private int idNotaFiscal;
     private String dataDaCompra;
-    private String cep;
+    private String supermercado;
     private Endereco endereco;
 
-    public NotaFiscal(int idNotaFiscal, String dataDaCompra, String cep, Endereco endereco) {
+    public NotaFiscal(int idNotaFiscal, String dataDaCompra, String supermercado,
+            Endereco endereco) {
         this.idNotaFiscal = idNotaFiscal;
         this.dataDaCompra = dataDaCompra;
-        this.cep = cep;
+        this.supermercado = supermercado;
         this.endereco = endereco;
     }
 
@@ -22,8 +23,8 @@ public class NotaFiscal {
         return dataDaCompra;
     }
 
-    public String getCep() {
-        return cep;
+    public String getSupermercado() {
+        return supermercado;
     }
 
     public Endereco getEndereco() {
