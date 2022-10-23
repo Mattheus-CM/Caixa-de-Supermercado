@@ -2,6 +2,7 @@ package view;
 
 import dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
+import model.Funcionario;
 
 public class JanelaLogin extends javax.swing.JFrame {
 
@@ -108,14 +109,17 @@ public class JanelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
         String senha = new String(txtSenha.getPassword());
-        System.out.println(senha);
         
         FuncionarioDAO fdao = new FuncionarioDAO();
         
         if(fdao.checkLogin(usuario, senha)){
+            if(fdao.checkGerente(usuario)){
             JanelaPrincipal jp = new JanelaPrincipal();
             jp.setVisible(true);
             this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Tela de Vendas!!!");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
         }

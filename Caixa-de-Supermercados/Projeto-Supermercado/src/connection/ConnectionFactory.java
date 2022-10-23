@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class ConnectionFactory {
@@ -20,8 +21,9 @@ public class ConnectionFactory {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new RuntimeException("Falha na conexão: " + ex);
+            JOptionPane.showMessageDialog(null, "Falha na conexão: " + ex);
         }
+        return null;
     }
 
     public static void closeConnection(Connection con){

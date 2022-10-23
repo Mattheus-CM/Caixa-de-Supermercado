@@ -74,7 +74,6 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
         lblCPF = new javax.swing.JLabel();
         txtCPF = new javax.swing.JTextField();
         lblCargo = new javax.swing.JLabel();
-        txtCargo = new javax.swing.JTextField();
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
@@ -85,6 +84,7 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
         lblIDEndereco = new javax.swing.JLabel();
         txtIDEndereco = new javax.swing.JTextField();
         btLimparCampos = new javax.swing.JButton();
+        cbCargo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -211,6 +211,8 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        cbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operador de Caixa", "Gerente" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,7 +247,7 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblCargo)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(lblUsuario)
                                         .addGap(18, 18, 18)
@@ -290,15 +292,16 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIDEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIDEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCargo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btLimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,16 +325,16 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (tbEndereco.getSelectedRow() != -1) {
-            if (txtNome.getText().isEmpty() || txtCPF.getText().isEmpty()
-                    || txtCargo.getText().isEmpty() || txtUsuario.getText().isEmpty()
-                    || txtIDEndereco.getText().isEmpty() || txtSenha.getPassword().toString().isEmpty()) {
+            if (txtNome.getText().isEmpty() || txtCPF.getText().isEmpty() 
+                    || txtUsuario.getText().isEmpty() || txtIDEndereco.getText().isEmpty() 
+                    || txtSenha.getPassword().toString().isEmpty()) {
 
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
 
             } else {
                 String nome = txtNome.getText();
                 String cpf = txtCPF.getText();
-                String cargo = txtCargo.getText();
+                String cargo = cbCargo.getSelectedItem().toString();
                 String usuario = txtUsuario.getText();
                 String senha = new String(txtSenha.getPassword());
                 int idEndereco = Integer.parseInt(txtIDEndereco.getText());
@@ -346,7 +349,6 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
                 txtCPF.setText("");
                 txtUsuario.setText("");
                 txtSenha.setText("");
-                txtCargo.setText("");
                 readTable();
             }
         } else {
@@ -362,22 +364,21 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
         txtCPF.setText("");
         txtUsuario.setText("");
         txtSenha.setText("");
-        txtCargo.setText("");
     }//GEN-LAST:event_btLimparCamposActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         // TODO add your handling code here:
         if (tbFuncionario.getSelectedRow() != -1) {
             if (txtNome.getText().isEmpty() || txtCPF.getText().isEmpty()
-                    || txtCargo.getText().isEmpty() || txtUsuario.getText().isEmpty()
-                    || txtIDEndereco.getText().isEmpty() || txtSenha.getPassword().toString().isEmpty()) {
+                    || txtUsuario.getText().isEmpty() || txtIDEndereco.getText().isEmpty() 
+                    || txtSenha.getPassword().toString().isEmpty()) {
 
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
 
             } else {
                 String nome = txtNome.getText();
                 String cpf = txtCPF.getText();
-                String cargo = txtCargo.getText();
+                String cargo = cbCargo.getSelectedItem().toString();
                 String usuario = txtUsuario.getText();
                 String senha = new String(txtSenha.getPassword());
                 int idEndereco = Integer.parseInt(txtIDEndereco.getText());
@@ -393,7 +394,6 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
                 txtCPF.setText("");
                 txtUsuario.setText("");
                 txtSenha.setText("");
-                txtCargo.setText("");
                 readTable();
             }
         }
@@ -414,7 +414,7 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
     private void tbFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFuncionarioMouseClicked
         // TODO add your handling code here:
         txtNome.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 1).toString());
-        txtCargo.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 2).toString());
+        cbCargo.setSelectedItem(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 2).toString());
         txtCPF.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 3).toString());
         txtUsuario.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 4).toString());
         txtIDEndereco.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 5).toString());
@@ -427,6 +427,7 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btLimparCampos;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
@@ -442,7 +443,6 @@ public class JanelaCadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTable tbEndereco;
     private javax.swing.JTable tbFuncionario;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtCargo;
     private javax.swing.JTextField txtIDEndereco;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenha;

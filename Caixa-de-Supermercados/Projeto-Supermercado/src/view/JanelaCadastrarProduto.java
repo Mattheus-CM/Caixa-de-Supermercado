@@ -150,8 +150,6 @@ public class JanelaCadastrarProduto extends javax.swing.JFrame {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         // TODO add your handling code here:
-        JanelaPrincipal jp = new JanelaPrincipal();
-        jp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 

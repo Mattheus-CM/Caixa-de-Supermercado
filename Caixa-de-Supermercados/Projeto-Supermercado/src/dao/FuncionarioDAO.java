@@ -44,7 +44,9 @@ public class FuncionarioDAO {
         boolean check = false;
 
         try {
+
             stmt = (PreparedStatement) con.prepareStatement("Select * from funcionario f where f.usuario = ? and f.senha = ?");
+
             stmt.setString(1, user);
             stmt.setString(2, senha);
 
@@ -52,6 +54,37 @@ public class FuncionarioDAO {
 
             if (rs.next()) {
                 check = true;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na checagem: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+        return check;
+    }
+
+    public boolean checkGerente(String user) {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
+
+        try {
+
+            stmt = (PreparedStatement) con.prepareStatement("Select cargo, usuario from funcionario f where usuario = ?");
+            
+            stmt.setString(1, user);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String cargo = rs.getString("cargo");
+                if (cargo.equals("Gerente")){
+                    check = true;
+                }
             }
 
         } catch (SQLException ex) {
@@ -84,7 +117,7 @@ public class FuncionarioDAO {
                         rs.getString("Usuario"),
                         rs.getString("Senha"),
                         rs.getInt("Endereco_idEndereco"),
-                                rs.getInt("idFuncionario"));
+                        rs.getInt("idFuncionario"));
                 funcionarios.add(funcionario);
 
             }
