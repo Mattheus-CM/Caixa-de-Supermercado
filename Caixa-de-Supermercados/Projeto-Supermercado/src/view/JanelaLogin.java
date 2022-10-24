@@ -2,7 +2,6 @@ package view;
 
 import dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
-import model.Funcionario;
 
 public class JanelaLogin extends javax.swing.JFrame {
 
@@ -114,11 +113,11 @@ public class JanelaLogin extends javax.swing.JFrame {
 
         if (fdao.checkLogin(usuario, senha)) {
             if (fdao.checkGerente(usuario)) {
-                JanelaPrincipal jp = new JanelaPrincipal();
+                JanelaPrincipal jp = new JanelaPrincipal(fdao.getIdLogin(usuario));
                 jp.setVisible(true);
                 this.dispose();
             } else {
-                JanelaVendas jv = new JanelaVendas();
+                JanelaVendas jv = new JanelaVendas(fdao.getIdLogin(usuario));
                 jv.setVisible(true);
                 this.dispose();
             }

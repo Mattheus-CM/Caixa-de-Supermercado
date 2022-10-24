@@ -1,25 +1,33 @@
 package view;
 
+import dao.DetalheVendaDAO;
 import dao.ProdutoDAO;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import model.DetalheVenda;
 import model.Produto;
 
 public class JanelaVendas extends javax.swing.JFrame {
 
     private BigDecimal totalCompra = new BigDecimal("00.00");
     private int qtd_linha = 0;
+    private int idFuncionario;
 
-    public JanelaVendas() {
+    public JanelaVendas(int idFuncionario) {
         initComponents();
 
         DefaultTableModel modelo = (DefaultTableModel) tbVenda.getModel();
         tbVenda.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(500);
+
+        this.idFuncionario = idFuncionario;
+        lblIdFuncionario.setText("Id Funcionário: " + this.idFuncionario);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,9 +50,9 @@ public class JanelaVendas extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         btFinalizarCompra = new javax.swing.JButton();
         brCancelarCompra = new javax.swing.JButton();
+        lblIdFuncionario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 638));
         setResizable(false);
 
         tbVenda.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,6 +96,11 @@ public class JanelaVendas extends javax.swing.JFrame {
         lblValorUnitario.setText("00.00");
 
         btAdicionarProduto.setText("Adicionar Produto");
+        btAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,6 +157,8 @@ public class JanelaVendas extends javax.swing.JFrame {
             }
         });
 
+        lblIdFuncionario.setText("Id Funcionário: 0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +173,8 @@ public class JanelaVendas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblCodigoProduto)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIdFuncionario))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -174,7 +190,7 @@ public class JanelaVendas extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(brCancelarCompra)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btFinalizarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btFinalizarCompra)
                                         .addGap(10, 10, 10)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -182,24 +198,24 @@ public class JanelaVendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lvlValor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lvlValor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 103, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
+                                .addGap(35, 35, 35)
+                                .addComponent(lblIdFuncionario)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblCodigoProduto)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGap(18, 30, Short.MAX_VALUE)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,20 +247,71 @@ public class JanelaVendas extends javax.swing.JFrame {
 
     private void btFinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarCompraActionPerformed
         // TODO add your handling code here:
-        
+
+        BigDecimal precoT = new BigDecimal(lblValorTotal.getText());
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
+        DetalheVenda detalheVenda = new DetalheVenda(
+                precoT, sdf.format(now), idFuncionario);
+
+        DetalheVendaDAO detalheVendaDAO = new DetalheVendaDAO();
+        detalheVendaDAO.create(detalheVenda);
+
+        txtCodigo.setText("");
+        spQuantidade.setValue(1);
+        lblNome.setText("Nome do Produto");
+        lblValorUnitario.setText("00.00");
+
+        DefaultTableModel modelo = (DefaultTableModel) tbVenda.getModel();
+        tbVenda.setRowSorter(new TableRowSorter(modelo));
+        modelo.setNumRows(0);
+        modelo.setNumRows(500);
+
+        lblValorTotal.setText("00.00");
+        totalCompra = totalCompra.subtract(totalCompra);
+        qtd_linha = 0;
     }//GEN-LAST:event_btFinalizarCompraActionPerformed
 
     private void brCancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brCancelarCompraActionPerformed
         // TODO add your handling code here:
-            txtCodigo.setText("");
-            spQuantidade.setValue(1);
-            lblNome.setText("Nome do Produto");
-            lblValorUnitario.setText("00.00");
-            
-            DefaultTableModel modelo = (DefaultTableModel) tbVenda.getModel();
-            tbVenda.setRowSorter(new TableRowSorter(modelo));
-            modelo.setNumRows(500);
+        txtCodigo.setText("");
+        spQuantidade.setValue(1);
+        lblNome.setText("Nome do Produto");
+        lblValorUnitario.setText("00.00");
+
+        DefaultTableModel modelo = (DefaultTableModel) tbVenda.getModel();
+        tbVenda.setRowSorter(new TableRowSorter(modelo));
+        modelo.setNumRows(0);
+        modelo.setNumRows(500);
+
+        lblValorTotal.setText("00.00");
+        totalCompra = totalCompra.subtract(totalCompra);
+        qtd_linha = 0;
     }//GEN-LAST:event_brCancelarCompraActionPerformed
+
+    private void btAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarProdutoActionPerformed
+        // TODO add your handling code here:
+        tbVenda.setValueAt(txtCodigo.getText(), qtd_linha, 0);
+        tbVenda.setValueAt(spQuantidade.getValue(), qtd_linha, 1);
+        tbVenda.setValueAt(lblValorUnitario.getText(), qtd_linha, 2);
+
+        BigDecimal qtd = new BigDecimal(spQuantidade.getValue().toString());
+        BigDecimal valorU = new BigDecimal(lblValorUnitario.getText());
+        BigDecimal valorTotal = qtd.multiply(valorU);
+
+        tbVenda.setValueAt(valorTotal, qtd_linha, 3);
+
+        totalCompra = totalCompra.add(valorTotal);
+
+        lblValorTotal.setText(totalCompra.toString());
+        txtCodigo.setText("");
+        spQuantidade.setValue(1);
+        lblNome.setText("Nome do Produto");
+        lblValorUnitario.setText("00.00");
+
+        qtd_linha += 1;
+    }//GEN-LAST:event_btAdicionarProdutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -254,6 +321,7 @@ public class JanelaVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoProduto;
+    private javax.swing.JLabel lblIdFuncionario;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeProduto;

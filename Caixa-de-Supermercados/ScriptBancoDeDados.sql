@@ -37,12 +37,9 @@ CREATE TABLE Produto (
 
 CREATE TABLE DetalheVenda (
 	idDetalheVenda INT NOT NULL AUTO_INCREMENT,
-	PrecoUnitario DOUBLE NOT NULL,
 	PrecoTotal DOUBLE NOT NULL,
-	Quantidade INT NOT NULL,
 	Data DATE NOT NULL,
 	Funcionario_idFuncionario INT NOT NULL,
-	NotaFiscal_idNotaFiscal INT NOT NULL,
 	PRIMARY KEY (idDetalheVenda),
 	FOREIGN KEY (Funcionario_idFuncionario) REFERENCES Funcionario (idFuncionario)
 		ON DELETE NO ACTION

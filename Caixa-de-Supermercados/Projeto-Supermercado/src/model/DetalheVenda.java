@@ -5,44 +5,39 @@ import java.math.BigDecimal;
 public class DetalheVenda {
 
     private int idDetalheVenda;
-    private BigDecimal precoUnitario;
     private BigDecimal precoTotal;
-    private int quantidade;
     private String dataDaCompra;
-    private Funcionario funcionario;
+    private int idFuncionario;
 
-    public DetalheVenda(int idDetalheVenda, BigDecimal precoUnitario, BigDecimal precoTotal, int quantidade,
-                        String dataDaCompra, Funcionario funcionario) {
-        this.idDetalheVenda = idDetalheVenda;
-        this.precoUnitario = precoUnitario;
+    public DetalheVenda(BigDecimal precoTotal, String dataDaCompra,
+            int idFuncionario) {
+
         this.precoTotal = precoTotal;
-        this.quantidade = quantidade;
         this.dataDaCompra = dataDaCompra;
-        this.funcionario = funcionario;
+        this.idFuncionario = idFuncionario;
+    }
+
+    public DetalheVenda(int idDetalheVenda, BigDecimal precoTotal,
+            String dataDaCompra, int idFuncionario) {
+
+        this(precoTotal, dataDaCompra, idFuncionario);
+        this.idDetalheVenda = idDetalheVenda;
     }
 
     public int getIdDetalheVenda() {
         return idDetalheVenda;
     }
 
-    public BigDecimal getPrecoUnitario() {
-        return precoUnitario;
-    }
-
     public BigDecimal getPrecoTotal() {
         return precoTotal;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
     }
 
     public String getDataDaCompra() {
         return dataDaCompra;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
+    public int getFuncionario() {
+        return idFuncionario;
     }
 
 }

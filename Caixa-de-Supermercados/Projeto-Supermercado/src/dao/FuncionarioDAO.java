@@ -75,14 +75,14 @@ public class FuncionarioDAO {
         try {
 
             stmt = (PreparedStatement) con.prepareStatement("Select cargo, usuario from funcionario f where usuario = ?");
-            
+
             stmt.setString(1, user);
 
             rs = stmt.executeQuery();
 
             if (rs.next()) {
                 String cargo = rs.getString("cargo");
-                if (cargo.equals("Gerente")){
+                if (cargo.equals("Gerente")) {
                     check = true;
                 }
             }
@@ -94,6 +94,33 @@ public class FuncionarioDAO {
         }
 
         return check;
+    }
+
+    public int getIdLogin(String user) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int idFuncionario = 0;
+
+        try {
+
+            stmt = (PreparedStatement) con.prepareStatement("Select idFuncionario from funcionario Where usuario = ?");
+
+            stmt.setString(1, user);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                idFuncionario = rs.getInt("idFuncionario");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na checagem: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+        return idFuncionario;
     }
 
     public List<Funcionario> read() {

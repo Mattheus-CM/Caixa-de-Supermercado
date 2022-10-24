@@ -2,8 +2,12 @@ package view;
 
 public class JanelaPrincipal extends javax.swing.JFrame {
 
-    public JanelaPrincipal() {
+    private int idFuncionario;
+    
+    public JanelaPrincipal(int idFuncionario) {
         initComponents();
+        
+        this.idFuncionario = idFuncionario;
     }
 
     @SuppressWarnings("unchecked")
@@ -96,7 +100,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     private void btVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderActionPerformed
         // TODO add your handling code here:
-        JanelaVendas jv = new JanelaVendas();
+        JanelaVendas jv = new JanelaVendas(idFuncionario);
         jv.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btVenderActionPerformed

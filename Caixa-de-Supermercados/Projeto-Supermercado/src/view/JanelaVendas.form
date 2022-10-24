@@ -3,9 +3,6 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[900, 638]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -39,6 +36,7 @@
                           <Component id="lblCodigoProduto" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCodigo" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
                           <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIdFuncionario" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
@@ -57,7 +55,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="brCancelarCompra" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btFinalizarCompra" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="btFinalizarCompra" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -73,27 +71,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lvlValor" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                          <Component id="lblValorTotal" alignment="3" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="lvlValor" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="lblValorTotal" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="470" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="103" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="lblLogo" min="-2" pref="203" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="lblIdFuncionario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblCodigoProduto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtCodigo" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" pref="30" max="32767" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -275,6 +272,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar Produto"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAdicionarProdutoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="spQuantidade">
           <AuxValues>
@@ -305,6 +305,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brCancelarCompraActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdFuncionario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id Funcion&#xe1;rio: 0"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
