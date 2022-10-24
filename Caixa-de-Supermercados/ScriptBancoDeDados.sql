@@ -35,27 +35,6 @@ CREATE TABLE Produto (
 	PRIMARY KEY (idProduto)
 );
 
-CREATE TABLE EnderecoSupermercado (
-	idEnderecoSupermercado INT NOT NULL AUTO_INCREMENT,
-	Rua VARCHAR(45) NOT NULL,
-	Numero VARCHAR(45) NOT NULL,
-	Bairro VARCHAR(45) NOT NULL,
-	Cidade VARCHAR(45) NOT NULL,
-	CEP VARCHAR(45) NOT NULL,
-	PRIMARY KEY (idEnderecoSupermercado)
-);
-
-CREATE TABLE NotaFiscal (
-	idNotaFiscal INT NOT NULL AUTO_INCREMENT,
-	DataDaCompra DATE NOT NULL,
-	Supermercado VARCHAR(45) NOT NULL,
-	Endereco_idEndereco INT NOT NULL,
-	PRIMARY KEY (idNotaFiscal),
-	FOREIGN KEY (Endereco_idEndereco) REFERENCES EnderecoSupermercado (idEnderecoSupermercado)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION
-);
-
 CREATE TABLE DetalheVenda (
 	idDetalheVenda INT NOT NULL AUTO_INCREMENT,
 	PrecoUnitario DOUBLE NOT NULL,
@@ -66,9 +45,6 @@ CREATE TABLE DetalheVenda (
 	NotaFiscal_idNotaFiscal INT NOT NULL,
 	PRIMARY KEY (idDetalheVenda),
 	FOREIGN KEY (Funcionario_idFuncionario) REFERENCES Funcionario (idFuncionario)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	FOREIGN KEY (NotaFiscal_idNotaFiscal) REFERENCES NotaFiscal (idNotaFiscal)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 );

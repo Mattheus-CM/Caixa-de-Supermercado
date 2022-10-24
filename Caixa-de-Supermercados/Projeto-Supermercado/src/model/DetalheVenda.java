@@ -10,17 +10,15 @@ public class DetalheVenda {
     private int quantidade;
     private String dataDaCompra;
     private Funcionario funcionario;
-    private NotaFiscal notaFiscal;
 
     public DetalheVenda(int idDetalheVenda, BigDecimal precoUnitario, BigDecimal precoTotal, int quantidade,
-                        String dataDaCompra, Funcionario funcionario, NotaFiscal notaFiscal) {
+                        String dataDaCompra, Funcionario funcionario) {
         this.idDetalheVenda = idDetalheVenda;
         this.precoUnitario = precoUnitario;
         this.precoTotal = precoTotal;
         this.quantidade = quantidade;
         this.dataDaCompra = dataDaCompra;
         this.funcionario = funcionario;
-        this.notaFiscal = notaFiscal;
     }
 
     public int getIdDetalheVenda() {
@@ -47,7 +45,4 @@ public class DetalheVenda {
         return funcionario;
     }
 
-    public NotaFiscal getNotaFiscal() {
-        return notaFiscal;
-    }
 }

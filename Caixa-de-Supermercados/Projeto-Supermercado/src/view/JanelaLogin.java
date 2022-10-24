@@ -109,16 +109,18 @@ public class JanelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
         String senha = new String(txtSenha.getPassword());
-        
+
         FuncionarioDAO fdao = new FuncionarioDAO();
-        
-        if(fdao.checkLogin(usuario, senha)){
-            if(fdao.checkGerente(usuario)){
-            JanelaPrincipal jp = new JanelaPrincipal();
-            jp.setVisible(true);
-            this.dispose();
+
+        if (fdao.checkLogin(usuario, senha)) {
+            if (fdao.checkGerente(usuario)) {
+                JanelaPrincipal jp = new JanelaPrincipal();
+                jp.setVisible(true);
+                this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Tela de Vendas!!!");
+                JanelaVendas jv = new JanelaVendas();
+                jv.setVisible(true);
+                this.dispose();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");

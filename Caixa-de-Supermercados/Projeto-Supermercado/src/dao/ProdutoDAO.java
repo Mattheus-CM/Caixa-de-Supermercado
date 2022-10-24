@@ -104,6 +104,41 @@ public class ProdutoDAO {
         return produtos;
 
     }
+    
+    public List<Produto> searchProduto(String codigo) {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Produto> produtos = new ArrayList<>();
+
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("SELECT * FROM Produto WHERE Codigo LIKE ?");
+            stmt.setString(1, codigo + "%");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Produto produto = new Produto(rs.getString("nome"),
+                        rs.getString("marca"),
+                        rs.getBigDecimal("preco"),
+                        rs.getString("codigo"),
+                rs.getInt("idProduto"));
+                produtos.add(produto);
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha ao exibir na Tabela!" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+
+        }
+
+        return produtos;
+
+    }
 
     public void update(Produto p) {
 

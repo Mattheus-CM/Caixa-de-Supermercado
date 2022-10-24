@@ -96,6 +96,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     private void btVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderActionPerformed
         // TODO add your handling code here:
+        JanelaVendas jv = new JanelaVendas();
+        jv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btVenderActionPerformed
 
     private void btCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarProdutoActionPerformed
