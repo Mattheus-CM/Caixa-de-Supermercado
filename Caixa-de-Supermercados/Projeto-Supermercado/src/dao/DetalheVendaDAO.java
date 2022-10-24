@@ -25,7 +25,7 @@ public class DetalheVendaDAO {
 
             stmt.executeUpdate();
 
-            //JOptionPane.showMessageDialog(null, "Compra Finalizada!");
+            JOptionPane.showMessageDialog(null, "Compra Finalizada!");
         } catch (SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro no cadastro: "+ ex);
         } finally {
