@@ -25,4 +25,3 @@ Sistema desenvolvido em Java, para a disciplina de Programação Orientada a Obj
 * Cadastrar um novo funcionário.
 * Editar as informações desse funcionário.
 * Deletar um funcionário da base de dados.
-* Gerar um relatório do total de vendas ao fechar o caixa.
